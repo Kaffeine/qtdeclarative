@@ -525,7 +525,6 @@ mkdir -p %{buildroot}/%{_docdir}/qt5/qtquick
 %defattr(-,root,root,-)
 %{_libdir}/libQt5QmlDevTools.a
 %{_libdir}/libQt5QmlDevTools.prl
-%{_includedir}/qt5/QtQmlDevTools/
 #%{_libdir}/pkgconfig/Qt5QmlDevTools.pc
 %{_datadir}/qt5/mkspecs/modules/qt_lib_qmldevtools_private.pri
 
