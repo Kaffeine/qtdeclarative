@@ -142,6 +142,14 @@ Requires:   %{name} = %{version}-%{release}
 %description import-folderlistmodel
 This package provides the QtQml folderlistmodel plugin
 
+%package import-sharedimage
+Summary:    Qt Declarative sharedimage plugin
+Group:      Qt/Qt
+Requires:   %{name} = %{version}-%{release}
+
+%description import-sharedimage
+This package provides the %{summary}
+
 %package import-settings
 Summary:    Qt Declarative settings plugin
 Group:      Qt/Qt
@@ -189,6 +197,14 @@ Requires:   %{name} = %{version}-%{release}
 
 %description import-qttest
 This package provides the QtQml QtTest plugin
+
+%package import-layouts
+Summary:    Qt Declarative Layouts plugin
+Group:      Qt/Qt
+Requires:   %{name} = %{version}-%{release}
+
+%description import-layouts
+This package provides the QtQml Layouts plugin
 
 %package import-particles2
 Summary:    Qt Declarative Particles plugin
@@ -374,18 +390,30 @@ mkdir -p %{buildroot}/%{_docdir}/qt5/qtquick
 # Find out what gives and find a clean resolution
 %files devel
 %defattr(-,root,root,-)
+%{_libdir}/libQt5PacketProtocol.a
+%{_libdir}/libQt5PacketProtocol.rpl
 %{_libdir}/libQt5Qml.so
 %{_libdir}/libQt5Qml.prl
+%{_libdir}/libQt5QmlDebug.a
+%{_libdir}/libQt5QmlDebug.rpl
 %{_libdir}/pkgconfig/Qt5Qml.pc
 %{_libdir}/qt5/qml/builtins.qmltypes
 %{_libdir}/qt5/qml/QtQml/plugins.qmltypes
 %{_libdir}/qt5/qml/QtQml/qmldir
+%{_includedir}/qt5/QtPacketProtocol/
 %{_includedir}/qt5/QtQml/
+%{_includedir}/qt5/QtQmlDebug/
+%{_datadir}/qt5/mkspecs/features/qmlcache.prf
+%{_datadir}/qt5/mkspecs/modules/qt_lib_packetprotocol_private.pri
 %{_datadir}/qt5/mkspecs/modules/qt_lib_qml.pri
 %{_datadir}/qt5/mkspecs/modules/qt_lib_qml_private.pri
+%{_datadir}/qt5/mkspecs/modules/qt_lib_qmldebug_private.pri
 %{_libdir}/cmake/Qt5Qml/Qt5QmlConfig.cmake
 %{_libdir}/cmake/Qt5Qml/Qt5QmlConfigExtras.cmake
 %{_libdir}/cmake/Qt5Qml/Qt5QmlConfigVersion.cmake
+%{_libdir}/cmake/Qt5Qml/Qt5Qml_QDebugMessageServiceFactory.cmake
+%{_libdir}/cmake/Qt5Qml/Qt5Qml_QQmlNativeDebugServiceFactory.cmake
+%{_libdir}/cmake/Qt5Qml/Qt5Qml_QQuickProfilerAdapterFactory.cmake
 
 
 %files doc
@@ -428,6 +456,7 @@ mkdir -p %{buildroot}/%{_docdir}/qt5/qtquick
 
 %files devel-tools
 %defattr(-,root,root,-)
+%{_qt5_bindir}/qmlcachegen
 %{_qt5_bindir}/qmlplugindump
 %{_qt5_bindir}/qmlprofiler
 %{_qt5_bindir}/qmltestrunner
@@ -441,6 +470,10 @@ mkdir -p %{buildroot}/%{_docdir}/qt5/qtquick
 %files import-folderlistmodel
 %defattr(-,root,root,-)
 %{_libdir}/qt5/qml/Qt/labs/folderlistmodel/*
+
+%files import-sharedimage
+%defattr(-,root,root,-)
+%{_libdir}/qt5/qml/Qt/labs/sharedimage/*
 
 %files import-settings
 %defattr(-,root,root,-)
@@ -466,6 +499,10 @@ mkdir -p %{buildroot}/%{_docdir}/qt5/qtquick
 #%defattr(-,root,root,-)
 #%{_libdir}/qt5/plugins/accessible/libqtaccessiblequick.so
 
+%files import-models2
+%defattr(-,root,root,-)
+%{_libdir}/qt5/qml/QtQml/Models.2/
+
 %files import-qttest
 %defattr(-,root,root,-)
 %{_libdir}/qt5/qml/QtTest/
@@ -474,6 +511,10 @@ mkdir -p %{buildroot}/%{_docdir}/qt5/qtquick
 %defattr(-,root,root,-)
 %{_libdir}/qt5/qml/QtQuick.2/
 
+%files import-layouts
+%defattr(-,root,root,-)
+%{_libdir}/qt5/qml/QtQuick/Layouts/
+
 %files import-particles2
 %defattr(-,root,root,-)
 %{_libdir}/qt5/qml/QtQuick/Particles.2/
@@ -481,10 +522,6 @@ mkdir -p %{buildroot}/%{_docdir}/qt5/qtquick
 %files import-window2
 %defattr(-,root,root,-)
 %{_libdir}/qt5/qml/QtQuick/Window.2/
-
-%files import-models2
-%defattr(-,root,root,-)
-%{_libdir}/qt5/qml/QtQml/Models.2/
 
 %files import-xmllistmodel
 %defattr(-,root,root,-)
