@@ -332,7 +332,7 @@ find %{buildroot}%{_libdir} -type f -name '*.prl' \
 rm -f %{buildroot}/%{_libdir}/*.la
 
 # We don't need qt5/Qt/
-rm -rf %{buildroot}/%{_includedir}/qt5/Qt
+rm -rf %{buildroot}/%{_qt5_headerdir}/Qt
 
 # Manually copy qmldevtools static library
 cp lib/libQt5QmlDevTools.a %{buildroot}/%{_libdir}
@@ -383,31 +383,31 @@ mkdir -p %{buildroot}/%{_docdir}/qt5/qtquick
 
 %files
 %defattr(-,root,root,-)
-%{_libdir}/libQt5Qml.so.5
-%{_libdir}/libQt5Qml.so.5.*
+%{_qt5_libdir}/libQt5Qml.so.5
+%{_qt5_libdir}/libQt5Qml.so.5.*
 
 # FIXME: the provided .pc file is empty!
 # Find out what gives and find a clean resolution
 %files devel
 %defattr(-,root,root,-)
-%{_libdir}/libQt5PacketProtocol.a
-%{_libdir}/libQt5PacketProtocol.prl
-%{_libdir}/libQt5Qml.so
-%{_libdir}/libQt5Qml.prl
-%{_libdir}/libQt5QmlDebug.a
-%{_libdir}/libQt5QmlDebug.prl
+%{_qt5_libdir}/libQt5PacketProtocol.a
+%{_qt5_libdir}/libQt5PacketProtocol.prl
+%{_qt5_libdir}/libQt5Qml.so
+%{_qt5_libdir}/libQt5Qml.prl
+%{_qt5_libdir}/libQt5QmlDebug.a
+%{_qt5_libdir}/libQt5QmlDebug.prl
 %{_libdir}/pkgconfig/Qt5Qml.pc
-%{_libdir}/qt5/qml/builtins.qmltypes
-%{_libdir}/qt5/qml/QtQml/plugins.qmltypes
-%{_libdir}/qt5/qml/QtQml/qmldir
-%{_includedir}/qt5/QtPacketProtocol/
-%{_includedir}/qt5/QtQml/
-%{_includedir}/qt5/QtQmlDebug/
-%{_datadir}/qt5/mkspecs/features/qmlcache.prf
-%{_datadir}/qt5/mkspecs/modules/qt_lib_packetprotocol_private.pri
-%{_datadir}/qt5/mkspecs/modules/qt_lib_qml.pri
-%{_datadir}/qt5/mkspecs/modules/qt_lib_qml_private.pri
-%{_datadir}/qt5/mkspecs/modules/qt_lib_qmldebug_private.pri
+%{_qt5_qmldir}/builtins.qmltypes
+%{_qt5_qmldir}/QtQml/plugins.qmltypes
+%{_qt5_qmldir}/QtQml/qmldir
+%{_qt5_headerdir}/QtPacketProtocol/
+%{_qt5_headerdir}/QtQml/
+%{_qt5_headerdir}/QtQmlDebug/
+%{_qt5_archdatadir}/mkspecs/features/qmlcache.prf
+%{_qt5_archdatadir}/mkspecs/modules/qt_lib_packetprotocol_private.pri
+%{_qt5_archdatadir}/mkspecs/modules/qt_lib_qml.pri
+%{_qt5_archdatadir}/mkspecs/modules/qt_lib_qml_private.pri
+%{_qt5_archdatadir}/mkspecs/modules/qt_lib_qmldebug_private.pri
 %{_libdir}/cmake/Qt5Qml/Qt5QmlConfig.cmake
 %{_libdir}/cmake/Qt5Qml/Qt5QmlConfigExtras.cmake
 %{_libdir}/cmake/Qt5Qml/Qt5QmlConfigVersion.cmake
@@ -417,26 +417,26 @@ mkdir -p %{buildroot}/%{_docdir}/qt5/qtquick
 
 
 %files doc
-%{_docdir}/qt5/qtqml*
+%{_qt5_docdir}/qtqml*
 
 %files qtquick
 %defattr(-,root,root,-)
-%{_libdir}/libQt5Quick.so.5
-%{_libdir}/libQt5Quick.so.5.*
+%{_qt5_libdir}/libQt5Quick.so.5
+%{_qt5_libdir}/libQt5Quick.so.5.*
 
 %files qtquick-devel
 %defattr(-,root,root,-)
-%{_libdir}/libQt5Quick.so
-%{_libdir}/libQt5Quick.prl
+%{_qt5_libdir}/libQt5Quick.so
+%{_qt5_libdir}/libQt5Quick.prl
 %{_libdir}/pkgconfig/Qt5Quick.pc
-%{_includedir}/qt5/QtQuick/
-%{_datadir}/qt5/mkspecs/modules/qt_lib_quick.pri
-%{_datadir}/qt5/mkspecs/modules/qt_lib_quick_private.pri
+%{_qt5_headerdir}/QtQuick/
+%{_qt5_archdatadir}/mkspecs/modules/qt_lib_quick.pri
+%{_qt5_archdatadir}/mkspecs/modules/qt_lib_quick_private.pri
 %{_libdir}/cmake/Qt5Quick/Qt5QuickConfig.cmake
 %{_libdir}/cmake/Qt5Quick/Qt5QuickConfigVersion.cmake
 
 %files qtquick-doc
-%{_docdir}/qt5/qtquick*
+%{_qt5_docdir}/qtquick*
 
 
 
@@ -469,23 +469,23 @@ mkdir -p %{buildroot}/%{_docdir}/qt5/qtquick
 
 %files import-folderlistmodel
 %defattr(-,root,root,-)
-%{_libdir}/qt5/qml/Qt/labs/folderlistmodel/*
+%{_qt5_qmldir}/Qt/labs/folderlistmodel/*
 
 %files import-sharedimage
 %defattr(-,root,root,-)
-%{_libdir}/qt5/qml/Qt/labs/sharedimage/*
+%{_qt5_qmldir}/Qt/labs/sharedimage/*
 
 %files import-settings
 %defattr(-,root,root,-)
-%{_libdir}/qt5/qml/Qt/labs/settings/*
+%{_qt5_qmldir}/Qt/labs/settings/*
 
 %files import-localstorageplugin
 %defattr(-,root,root,-)
-%{_libdir}/qt5/qml/QtQuick/LocalStorage/
+%{_qt5_qmldir}/QtQuick/LocalStorage/
 
 %files plugin-qmlinspector
 %defattr(-,root,root,-)
-%{_libdir}/qt5/plugins/qmltooling/*
+%{_qt5_plugindir}/qmltooling/*
 %{_libdir}/cmake/Qt5Qml/Qt5Qml_QLocalClientConnectionFactory.cmake
 %{_libdir}/cmake/Qt5Qml/Qt5Qml_QQmlInspectorServiceFactory.cmake
 %{_libdir}/cmake/Qt5Qml/Qt5Qml_QTcpServerConnectionFactory.cmake
@@ -497,75 +497,75 @@ mkdir -p %{buildroot}/%{_docdir}/qt5/qtquick
 
 #%files plugin-accessible
 #%defattr(-,root,root,-)
-#%{_libdir}/qt5/plugins/accessible/libqtaccessiblequick.so
+#%{_qt5_plugindir}/accessible/libqtaccessiblequick.so
 
 %files import-models2
 %defattr(-,root,root,-)
-%{_libdir}/qt5/qml/QtQml/Models.2/
+%{_qt5_qmldir}/QtQml/Models.2/
 
 %files import-qttest
 %defattr(-,root,root,-)
-%{_libdir}/qt5/qml/QtTest/
+%{_qt5_qmldir}/QtTest/
 
 %files import-qtquick2plugin
 %defattr(-,root,root,-)
-%{_libdir}/qt5/qml/QtQuick.2/
+%{_qt5_qmldir}/QtQuick.2/
 
 %files import-layouts
 %defattr(-,root,root,-)
-%{_libdir}/qt5/qml/QtQuick/Layouts/
+%{_qt5_qmldir}/QtQuick/Layouts/
 
 %files import-particles2
 %defattr(-,root,root,-)
-%{_libdir}/qt5/qml/QtQuick/Particles.2/
+%{_qt5_qmldir}/QtQuick/Particles.2/
 
 %files import-window2
 %defattr(-,root,root,-)
-%{_libdir}/qt5/qml/QtQuick/Window.2/
+%{_qt5_qmldir}/QtQuick/Window.2/
 
 %files import-xmllistmodel
 %defattr(-,root,root,-)
-%{_libdir}/qt5/qml/QtQuick/XmlListModel/
+%{_qt5_qmldir}/QtQuick/XmlListModel/
 
 
 
 %files qtquicktest
 %defattr(-,root,root,-)
-%{_libdir}/libQt5QuickTest.so.5
-%{_libdir}/libQt5QuickTest.so.5.*
+%{_qt5_libdir}/libQt5QuickTest.so.5
+%{_qt5_libdir}/libQt5QuickTest.so.5.*
 
 %files qtquicktest-devel
 %defattr(-,root,root,-)
-%{_includedir}/qt5/QtQuickTest/
-%{_libdir}/libQt5QuickTest.so
-%{_libdir}/libQt5QuickTest.prl
+%{_qt5_headerdir}/QtQuickTest/
+%{_qt5_libdir}/libQt5QuickTest.so
+%{_qt5_libdir}/libQt5QuickTest.prl
 %{_libdir}/pkgconfig/Qt5QuickTest.pc
-%{_datadir}/qt5/mkspecs/modules/qt_lib_qmltest.pri
-%{_datadir}/qt5/mkspecs/modules/qt_lib_qmltest_private.pri
+%{_qt5_archdatadir}/mkspecs/modules/qt_lib_qmltest.pri
+%{_qt5_archdatadir}/mkspecs/modules/qt_lib_qmltest_private.pri
 %{_libdir}/cmake/Qt5QuickTest/Qt5QuickTestConfig.cmake
 %{_libdir}/cmake/Qt5QuickTest/Qt5QuickTestConfigVersion.cmake
 
 %files qtquickparticles
 %defattr(-,root,root,-)
-%{_libdir}/libQt5QuickParticles.so.5
-%{_libdir}/libQt5QuickParticles.so.5.*
+%{_qt5_libdir}/libQt5QuickParticles.so.5
+%{_qt5_libdir}/libQt5QuickParticles.so.5.*
 
 %files qtquickparticles-devel
 %defattr(-,root,root,-)
-%{_includedir}/qt5/QtQuickParticles/
-%{_libdir}/libQt5QuickParticles.so
-%{_libdir}/libQt5QuickParticles.prl
+%{_qt5_headerdir}/QtQuickParticles/
+%{_qt5_libdir}/libQt5QuickParticles.so
+%{_qt5_libdir}/libQt5QuickParticles.prl
 #%{_libdir}/pkgconfig/Qt5QuickParticles.pc
-%{_datadir}/qt5/mkspecs/modules/qt_lib_quickparticles_private.pri
+%{_qt5_archdatadir}/mkspecs/modules/qt_lib_quickparticles_private.pri
 
 %files qtdeclarativetools-devel
 %defattr(-,root,root,-)
-%{_libdir}/libQt5QmlDevTools.a
-%{_libdir}/libQt5QmlDevTools.prl
+%{_qt5_libdir}/libQt5QmlDevTools.a
+%{_qt5_libdir}/libQt5QmlDevTools.prl
 #%{_libdir}/pkgconfig/Qt5QmlDevTools.pc
-%{_datadir}/qt5/mkspecs/modules/qt_lib_qmldevtools_private.pri
+%{_qt5_archdatadir}/mkspecs/modules/qt_lib_qmldevtools_private.pri
 
 %files plugin-qmlstatemachine
 %defattr(-,root,root,-)
-%{_libdir}/qt5/qml/QtQml/StateMachine//
+%{_qt5_qmldir}/QtQml/StateMachine/
 
