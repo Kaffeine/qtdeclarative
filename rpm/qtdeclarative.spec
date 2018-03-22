@@ -9,11 +9,11 @@ URL:        http://www.qt.io
 Source0:    %{name}-%{version}.tar.bz2
 BuildRequires:  qt5-qtcore-devel >= %qt_abi_version
 BuildRequires:  qt5-qtgui-devel >= %qt_abi_version
-BuildRequires:  qt5-qtnetwork-devel
-BuildRequires:  qt5-qtsql-devel
-BuildRequires:  qt5-qttest-devel
-BuildRequires:  qt5-qtxmlpatterns-devel
-BuildRequires:  qt5-qmake
+BuildRequires:  qt5-qtnetwork-devel >= %qt_abi_version
+BuildRequires:  qt5-qtsql-devel >= %qt_abi_version
+BuildRequires:  qt5-qttest-devel >= %qt_abi_version
+BuildRequires:  qt5-qtxmlpatterns-devel >= %qt_abi_version
+BuildRequires:  qt5-qmake >= %qt_abi_version
 #BuildRequires:  qt5-qttools-qthelp-devel
 BuildRequires:  fdupes
 BuildRequires:  python
