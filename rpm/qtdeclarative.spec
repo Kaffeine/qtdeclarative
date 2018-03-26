@@ -69,7 +69,7 @@ Summary:    Qt Declarative QtQuickTest - development files
 Group:      Qt/Qt
 Requires:   %{name} = %{version}-%{release}
 Requires:   %{name}-devel = %{version}-%{release}
-Requires:   qt5-qtdeclarative-qtquicktest = %{version}-%{release}
+Requires:   %{name}-qtquicktest = %{version}-%{release}
 
 %description qtquicktest-devel
 This package contains the development headers for QtQuickTest library
@@ -78,7 +78,7 @@ This package contains the development headers for QtQuickTest library
 Summary:    Qt Declarative - QtQuick library
 Group:      Qt/Qt
 Requires:   %{name} = %{version}-%{release}
-Obsoletes: qt5-qtdeclarative-plugin-accessible
+Obsoletes:  %{name}-plugin-accessible
 
 %description qtquick
 This package contains the QtQuick QML support library
@@ -87,7 +87,7 @@ This package contains the QtQuick QML support library
 Summary:    Qt Declarative - QtQuick development files
 Group:      Qt/Qt
 Requires:   %{name} = %{version}-%{release}
-Requires:   qt5-qtdeclarative-qtquick = %{version}-%{release}
+Requires:   %{name}-qtquick = %{version}-%{release}
 
 %description qtquick-devel
 This package contains the development headers for legacy QtQuick 1
@@ -97,7 +97,7 @@ QML support library
 Summary:    Qt Declarative - QtQuick documentation
 Group:      Qt/Qt
 Requires:   %{name} = %{version}-%{release}
-Requires:   qt5-qtdeclarative-qtquick = %{version}-%{release}
+Requires:   %{name}-qtquick = %{version}-%{release}
 
 %description qtquick-doc
 This package contains the Qt Declarative QtQuick documentation
@@ -114,7 +114,7 @@ This package contains the QtQuick Particles support library
 Summary:    Qt Declarative - QtQuick Particles development files
 Group:      Qt/Qt
 Requires:   %{name} = %{version}-%{release}
-Requires:   qt5-qtdeclarative-qtquickparticles = %{version}-%{release}
+Requires:   %{name}-qtquickparticles = %{version}-%{release}
 
 %description qtquickparticles-devel
 This package contains the development headers for QtQuickParticles
@@ -126,7 +126,6 @@ Summary:    Qt Declarative QtQmlDevTools - development files
 Group:      Qt/Qt
 Requires:   %{name} = %{version}-%{release}
 Requires:   %{name}-devel = %{version}-%{release}
-Requires:   qt5-qtdeclarative-devel = %{version}-%{release}
 
 %description qtdeclarativetools-devel
 This package contains the development headers for QtQmlDevTools
